@@ -1,0 +1,1 @@
+# `Signality Assignment` :sunglasses:
