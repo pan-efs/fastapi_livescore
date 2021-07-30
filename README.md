@@ -13,24 +13,24 @@ Check status: `docker ps`, [optional]
 
 Stop: `docker stop {container id}`
 
-### Interact with FastAPI
+### Interact with Live Score API
 `Option 1:` Open your desired browser (e.g. Google Chrome) and write `http://localhost:8000/docs`.
 An interactive version of REST API will render on your screen.
 
 `Option 2:` Via terminal write the command `python`, then you should see the symbol `>>>`.
-Then, you can provide a virtual scenario as below, in order to perceive the philoshopy of REST API.
+Then, you can provide a virtual scenario as below, in order to perceive the philoshopy of Live Score API.
 
 ```diff
 # import requests
-! requests.get('http://localhost:8000/score').text, get score!
-! requests.post('http://localhost:8000/goal', json={'player':'rhodinho', 'team':'away'}).text, post goal!
-requests.post('http://localhost:8000/goal', json={'player':'berginho', 'team':'home'}).text
-! requests.post('http://localhost:8000/goal', json={'player':'-1', 'team':'home'}).text, set score as 0-0!
-requests.get('http://localhost:8000/score').text
-requests.post('http://localhost:8000/goal', json={'team':'home'}).text
-requests.post('http://localhost:8000/goal', json={'team':'home'}).text
-requests.post('http://localhost:8000/goal', json={'team':'home'}).text
-requests.post('http://localhost:8000/goal', json={'team':'home'}).text
-requests.get('http://localhost:8000/score').text
-- requests.post('http://localhost:8000/goal', json={'team':'sweden'}).text, error!
+! requests.get('http://localhost:8000/score').text, GET SCORE!
+! requests.post('http://localhost:8000/goal', json={'player':'rhodinho', 'team':'away'}).text, POST GOAL!
+  requests.post('http://localhost:8000/goal', json={'player':'berginho', 'team':'home'}).text
+! requests.post('http://localhost:8000/goal', json={'player':'-1', 'team':'home'}).text, SET SCORE AS 0-0!
+  requests.get('http://localhost:8000/score').text
+  requests.post('http://localhost:8000/goal', json={'team':'home'}).text
+  requests.post('http://localhost:8000/goal', json={'team':'home'}).text
+  requests.post('http://localhost:8000/goal', json={'team':'home'}).text
+  requests.post('http://localhost:8000/goal', json={'team':'home'}).text
+  requests.get('http://localhost:8000/score').text
+- requests.post('http://localhost:8000/goal', json={'team':'sweden'}).text, ERROR!
 ```
