@@ -7,6 +7,8 @@ You can clone the project from GitHub using your desired IDE.
 
 Get docker from [here.](https://docs.docker.com/get-docker/)
 ### Build and run docker
+Open your terminal at the root of project directory. Following the below commands you can build and run the project.
+
 Build: `docker-compose up -d`
 
 Existence: `docker images`, [optional]
