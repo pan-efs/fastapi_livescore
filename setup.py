@@ -10,6 +10,8 @@ setup(
     license="",
     packages=[
         "app",
+        "app.models",
+        "app.schemas",
         "test"
     ],
     install_requires=[

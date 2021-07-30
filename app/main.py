@@ -1,6 +1,5 @@
-import collections
-
-from app.schemas import (Goal, Score)
+from app.schemas.schemas import (Goal, Score)
+from app.models.db import DequeDB
 
 from starlette.status import HTTP_422_UNPROCESSABLE_ENTITY
 from fastapi import (FastAPI, HTTPException)
@@ -8,9 +7,9 @@ from fastapi import (FastAPI, HTTPException)
 #Initialize fastapi instance
 app = FastAPI()
 
-#Initialize deque data structure and the score as 0-0.
+#Initialize DequeDB and the score as 0-0.
 score = Score()
-db = collections.deque['Score']()
+db = DequeDB()
 db.appendleft(score)
 
 #REST Operations
@@ -18,29 +17,25 @@ db.appendleft(score)
     '/goal',
     response_model=Score,
     status_code=200,
-    description='Update the score. If you want 0-0, give "-1" value to "player" key.',
+    description='Update the score. Set 0-0 providing "-1" value to "player" key.',
     tags = ['Live Score']
 )
 def post_goal(goal: Goal):
-    if goal and goal.player=='-1':
-        score.away = 0
-        score.home = 0
+    if goal:
+        if goal.player=='-1':
+            score.away = 0
+            score.home = 0
+            
+            db.clear_db() #length==0
+            return db.update_score(score)
         
-        db.clear() #length==0
-        db.appendleft(score)
-        return db[0]
-    
-    if goal and goal.team=='home':
-        score.home = score.home + 1
+        if goal.team=='home':
+            score.home = score.home + 1
+            return db.update_score(score)
         
-        db.appendleft(score)
-        return db[0]
-    
-    elif goal and goal.team=='away':
-        score.away = score.away + 1
-        
-        db.appendleft(score)
-        return db[0]
+        elif goal.team=='away':
+            score.away = score.away + 1
+            return db.update_score(score)
     
     else:
         raise HTTPException(status_code=HTTP_422_UNPROCESSABLE_ENTITY)
@@ -53,4 +48,4 @@ def post_goal(goal: Goal):
     tags = ['Live Score']
 )
 def get_score():
-    return db[0]
+    return db.get_current_score()

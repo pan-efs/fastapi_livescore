@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 
-from main import app
+from app.main import app
 
 client = TestClient(app)
 
@@ -97,7 +97,7 @@ def test_invalid_team_value():
 
 def test_extra_optional_keys():
     """
-    Provide more info related to goal.
+    Provide more info related to goal but it returns only the score again.
     """
     response = client.post(
         '/goal',
