@@ -38,3 +38,6 @@ Then, you can provide a virtual scenario as below, in order to perceive the phil
   requests.get('http://localhost:8000/score').text
 - requests.post('http://localhost:8000/goal', json={'team':'sweden'}).text, ERROR!
 ```
+
+### Run tests
+Navigate to root project directory and provide the command `pytest`.
