@@ -4,6 +4,8 @@
 The project is built with python=3.9.6 version on Windows 10 OS.
 
 You can clone the project from GitHub using your desired IDE.
+
+Get docker from [here.](https://docs.docker.com/get-docker/)
 ### Build and run docker
 Build: `docker-compose up -d`
 
