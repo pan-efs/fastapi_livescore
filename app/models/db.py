@@ -27,6 +27,6 @@ class DequeDB(collections.deque):
     
     def clear_db(self):
         """
-        Clear the deque database.
+        Clear the deque data structure.
         """
         self.clear()

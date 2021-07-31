@@ -2,7 +2,6 @@ from pydantic import (BaseModel, Field)
 from typing import Optional
 from enum import Enum
 
-
 class Team(str, Enum):
     away = 'away'
     home = 'home'
