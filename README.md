@@ -3,13 +3,13 @@
 ### Info & Prep
 The project is built with python=3.9.6 version on Windows 10 OS.
 
-You can clone the project from GitHub using your desired IDE.
+Initialiaze the project using your desired IDE if you wish.
 
 Get docker from [here.](https://docs.docker.com/get-docker/)
 ### Build and run docker
-Open your terminal at the root of project directory. Following the below commands you can build and run the project.
+Open your terminal at the root of the project directory. Following the below commands you can build and run the project.
 
-Build: `docker-compose up -d`
+Build & Run: `docker-compose up -d`
 
 Existence: `docker images`, [optional]
 
@@ -22,7 +22,7 @@ Stop: `docker stop {container id}`
 An interactive version of REST API will render on your screen.
 
 `Option 2:` Via terminal write the command `python`, then you should see the symbol `>>>`.
-Then, you can provide a virtual scenario as below, in order to perceive the philoshopy of Live Score API.
+Then, you can provide a virtual scenario line by line as below, in order to perceive the philoshopy of Live Score API.
 
 ```diff
 # import requests
