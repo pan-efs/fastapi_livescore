@@ -3,7 +3,7 @@
 ### Info & Prep
 The project is built with python=3.9.6 version on Windows 10 OS.
 
-Initialiaze the project using your desired IDE if you wish.
+Initialize the project using your desired IDE if you wish.
 
 Get docker from [here.](https://docs.docker.com/get-docker/)
 ### Build and run docker
@@ -22,7 +22,7 @@ Stop: `docker stop {container id}`
 An interactive version of REST API will render on your screen.
 
 `Option 2:` Via terminal write the command `python`, then you should see the symbol `>>>`.
-Then, you can provide a virtual scenario line by line as below, in order to perceive the philoshopy of Live Score API.
+Then, you can provide a virtual scenario line by line as below, in order to perceive the philosophy of Live Score API.
 
 ```diff
 # import requests
@@ -40,4 +40,4 @@ Then, you can provide a virtual scenario line by line as below, in order to perc
 ```
 
 ### Run tests
-Navigate to root project directory and provide the command `pytest`.
+Navigate to the root project directory and provide the command `pytest`.
