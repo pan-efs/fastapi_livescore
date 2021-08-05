@@ -29,13 +29,8 @@ Then, you can provide a virtual scenario line by line as below, in order to perc
 ! requests.get('http://localhost:8000/score').text, GET SCORE!
 ! requests.post('http://localhost:8000/goal', json={'player':'rhodinho', 'team':'away'}).text, POST GOAL!
   requests.post('http://localhost:8000/goal', json={'player':'berginho', 'team':'home'}).text
-! requests.post('http://localhost:8000/goal', json={'player':'-1', 'team':'home'}).text, SET SCORE AS 0-0!
-  requests.get('http://localhost:8000/score').text
-  requests.post('http://localhost:8000/goal', json={'team':'home'}).text
-  requests.post('http://localhost:8000/goal', json={'team':'home'}).text
-  requests.post('http://localhost:8000/goal', json={'team':'home'}).text
-  requests.post('http://localhost:8000/goal', json={'team':'home'}).text
-  requests.get('http://localhost:8000/score').text
+! requests.get('http://localhost:8000/history').text, GET HISTORY!
+! requests.delete('http://localhost:8000/reset').text, RESET SCORE!
 - requests.post('http://localhost:8000/goal', json={'team':'sweden'}).text, ERROR!
 ```
 
