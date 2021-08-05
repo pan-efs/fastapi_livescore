@@ -8,34 +8,23 @@ from fastapi import (FastAPI, HTTPException)
 app = FastAPI()
 
 #Initialize DequeDB and the score as 0-0.
-score = Score()
 db = DequeDB()
-db.appendleft(score)
+db.appendleft(Score())
 
 #REST Operations
 @app.post(
     '/goal',
     response_model=Score,
     status_code=200,
-    description='Update the score. Set 0-0 providing "-1" value to "player" key.',
+    description='Update the score.',
     tags = ['Live Score']
 )
 def post_goal(goal: Goal):
-    if goal:
-        if goal.player=='-1':
-            score.away = 0
-            score.home = 0
-            
-            db.clear_db() #length==0
-            return db.update_score(score)
-        
-        if goal.team=='home':
-            score.home = score.home + 1
-            return db.update_score(score)
-        
-        elif goal.team=='away':
-            score.away = score.away + 1
-            return db.update_score(score)
+    if goal.team=='home':
+        return db.update_home_score()
+    
+    elif goal.team=='away':
+        return db.update_away_score()
     
     else:
         raise HTTPException(status_code=HTTP_422_UNPROCESSABLE_ENTITY)
@@ -49,3 +38,23 @@ def post_goal(goal: Goal):
 )
 def get_score():
     return db.get_current_score()
+
+@app.get(
+    '/history',
+    response_model=list,
+    status_code=200,
+    description='Get score history of the game.',
+    tags = ['Live Score']
+)
+def get_history():
+    return list(db)
+
+@app.delete(
+    '/reset',
+    response_model=Score,
+    status_code=200,
+    description='Reset score as 0-0.',
+    tags = ['Live Score']
+)
+def reset_score():
+    return db.reset_score()
