@@ -13,3 +13,10 @@ class Goal(BaseModel):
 class Score(BaseModel):
     away: int=Field(ge=0, default=0)
     home: int=Field(ge=0, default=0)
+    
+class InfoTeam(BaseModel):
+    team: Team
+    name: Optional[str]
+    country: Optional[str]
+    league: Optional[str]
+    stadium: Optional[str]

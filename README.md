@@ -6,6 +6,10 @@ The project is built with python=3.9.6 version on Windows 10 OS.
 Initialize the project using your desired IDE if you wish.
 
 Get docker from [here.](https://docs.docker.com/get-docker/)
+
+### Run web server and develop simultaneously
+Navigate to the root project directory and provide the command `uvicorn app.main:app --reload`.
+Modifications take place automatically at the same time.
 ### Build and run docker
 Open your terminal at the root of the project directory. Following the below commands you can build and run the project.
 
