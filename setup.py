@@ -14,11 +14,7 @@ setup(
         "app.schemas",
         "test"
     ],
-    install_requires=[
-        "fastapi",
-        "uvicorn",
-        "pytest"
-    ],
+    python_requires=">=3.9",
     include_package_data=True,
     zip_safe=False,
 )
