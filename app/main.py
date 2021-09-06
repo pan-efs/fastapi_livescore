@@ -17,7 +17,7 @@ db.appendleft(Score())
     response_model=Score,
     status_code=200,
     description='Update the score.',
-    tags = ['Live Score']
+    tags=['Live Score']
 )
 def post_goal(goal: Goal):
     if goal.team=='home':
@@ -34,7 +34,7 @@ def post_goal(goal: Goal):
     response_model=Score,
     status_code=200,
     description='Get current score.',
-    tags = ['Live Score']
+    tags=['Live Score']
 )
 def get_score():
     return db.get_current_score()
@@ -44,7 +44,7 @@ def get_score():
     response_model=list,
     status_code=200,
     description='Get score history of the game.',
-    tags = ['Live Score']
+    tags=['Live Score']
 )
 def get_history():
     return list(db)
@@ -58,3 +58,16 @@ def get_history():
 )
 def reset_score():
     return db.reset_score()
+
+@app.get(
+    '/healthcheck',
+    status_code=200,
+    description='Check the health status of api.',
+    tags=['Health Check']
+)
+async def healthcheck():
+    try:
+        return {"status": "alive"}
+    
+    except Exception as e:
+        return {"status": e}

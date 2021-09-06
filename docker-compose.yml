@@ -2,8 +2,13 @@ version: '3'
 services: 
     core_api:
         build: .
-        container_name: "core-api-container"
+        container_name: "live-score-api-container"
         ports: 
             - "8000:8000"
         volumes: 
             - ./app/:/app
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost"]
+            interval: 1m
+            timeout: 10s
+            retries: 3
