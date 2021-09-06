@@ -1,7 +1,7 @@
-# `Signality Assignment` :sunglasses:
+# `Live Score` :sunglasses:
 
 ### Info & Prep
-The project is built with python=3.9.6 version on Windows 10 OS.
+The project is built with python=3.9.6 version.
 
 Initialize the project using your desired IDE if you wish.
 
@@ -20,6 +20,8 @@ Existence: `docker images`, [optional]
 Check status: `docker ps`, [optional]
 
 Stop: `docker stop {container id}`
+
+If you want to rebuild docker container at any time, type: `docker-compose up -d --no-deps --build`.
 
 ### Interact with Live Score API
 `Option 1:` Open your desired browser (e.g. Google Chrome) and write `http://localhost:8000/docs`.
