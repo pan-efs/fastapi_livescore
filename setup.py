@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name="live score",
     version="0.0.1",
-    description="Signality Assignment",
+    description="REST API using FastAPI",
     url="",
     author="Panagiotis Ef.",
     author_email="",
