@@ -3,7 +3,7 @@
 #set base image (host OS)
 FROM python:3.9.6-slim-buster
 
-# Install necessary ubuntu packages
+# Install necessary packages
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends build-essential \
     gcc \
